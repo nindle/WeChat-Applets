@@ -1,0 +1,145 @@
+<!--index.wxml-->
+<scroll-view class="root"  scroll-y>
+	<!-- nav头部 -->
+	<view class="nav">
+		<view wx:for="{{navTab}}" wx:for-item="item" wx:key="index" class="item" bindtap="navClick" data-url="{{item.url}}">
+			<image src='{{item.icon}}' class="icon"></image>
+			<view class="nav_title">{{item.name}}</view>
+		</view>
+	</view>
+
+	<!-- banner轮播 -->
+  <scroll-view class="banner" scroll-x="true" style="width: 100%">
+	  <!-- 左边 -->
+		<view class="banner_left" style="background-image: url({{bannerLeft.cover}}); background-size: cover;" bindtap="navClick" data-url="https://app-web.topcj.com/#/topiclist/29">
+			<view class="banner_left_box">
+				<view class="title">
+					<image src="../../assets/home/banner_icon.png" class="title_icon"></image>
+					{{ bannerLeft.name }}
+				</view>
+				<view class="int">{{ bannerLeft.description }}</view>
+				<!-- 股票信息 -->
+				<view class="stock">
+					<!-- 左边股票信息 -->
+					<view class="stock_left">
+						<view class="stock_name">{{ bannerLeft.stocks[0].stockName }}</view>
+						<view class="{{ bannerLeft.stocks[0].pctChangeRate > 0 ? 'stock_rise' : 'stock_drop' }}">
+							{{ bannerLeft.stocks[0].pctChangeRate > 0 ? '+' + bannerLeft.stocks[0].pctChangeRate : bannerLeft.stocks[0].pctChangeRate }}%
+							<image src="{{ bannerLeft.stocks[0].pctChangeRate > 0 ? '../../assets/home/banner_rise.png' : '../../assets/home/banner_drop.png'}}" class="rise"></image>
+						</view>
+					</view>
+					<!-- 右边股票信息 -->
+					<view class="stock_right">
+						<view class="stock_name">{{ bannerLeft.stocks[1].stockName }}</view>
+						<view class="{{ bannerLeft.stocks[1].pctChangeRate > 0 ? 'stock_rise' : 'stock_drop' }}">
+							{{ bannerLeft.stocks[1].pctChangeRate > 0 ? '+' + bannerLeft.stocks[1].pctChangeRate : bannerLeft.stocks[1].pctChangeRate }}%
+							<image src="{{ bannerLeft.stocks[1].pctChangeRate > 0 ? '../../assets/home/banner_rise.png' : '../../assets/home/banner_drop.png'}}" class="rise"></image>
+						</view>
+					</view>
+				</view>
+			</view>
+		</view>
+		<!-- 右边 -->
+		<view class="banner_right" style="background-image: url({{bannerRight.cover}}); background-size: cover;" bindtap="navClick" data-url="https://app-web.topcj.com/#/topiclist/31">
+			<view class="banner_right_box">
+				<view class="title">
+					<image src="../../assets/home/banner_icon.png" class="title_icon"></image>
+					{{ bannerRight.name }}
+				</view>
+				<view class="int">{{ bannerRight.description }}</view>
+				<!-- 股票信息 -->
+				<view class="stock">
+					<!-- 左边股票信息 -->
+					<view class="stock_left">
+						<view class="stock_name">{{ bannerRight.stocks[0].stockName }}</view>
+						<view class="{{ bannerRight.stocks[0].pctChangeRate > 0 ? 'stock_rise' : 'stock_drop' }}">
+							{{ bannerRight.stocks[0].pctChangeRate > 0 ? '+' + bannerRight.stocks[0].pctChangeRate : bannerRight.stocks[0].pctChangeRate }}%
+							<image src="{{ bannerRight.stocks[0].pctChangeRate > 0 ? '../../assets/home/banner_rise.png' : '../../assets/home/banner_drop.png'}}" class="rise"></image>
+						</view>
+					</view>
+					<!-- 右边股票信息 -->
+					<view class="stock_right">
+						<view class="stock_name">{{ bannerRight.stocks[1].stockName }}</view>
+						<view class="{{ bannerRight.stocks[1].pctChangeRate > 0 ? 'stock_rise' : 'stock_drop' }}">
+							{{ bannerRight.stocks[1].pctChangeRate > 0 ? '+' + bannerRight.stocks[1].pctChangeRate : bannerRight.stocks[1].pctChangeRate }}%
+							<image src="{{ bannerRight.stocks[1].pctChangeRate > 0 ? '../../assets/home/banner_rise.png' : '../../assets/home/banner_drop.png'}}" class="rise"></image>
+						</view>
+					</view>
+				</view>
+			</view>
+		</view>
+  </scroll-view>
+
+	<!-- 文章列表 -->
+	<view class="articlelist" wx:for="{{articleList}}" wx:for-item="item" wx:key="index" >
+		<!-- 文章视频 -->
+		<view class="articleVideo" wx:if="{{ item.videoUrl }}" bindtap="navClick" data-url="https://app-web.topcj.com/#/news/detail/{{item.id}}">
+			<view class="articleVideo_top">
+				<view class="articleVideo_title">{{ item.title }}</view>
+				<view class="articleVideo_time">{{ item.ntime }}</view>
+			</view>
+			<view class="articleVideo_cover">
+				<image src="{{ item.cover }}" class="video_cover"></image>
+				<image src="../../assets/home/cover_play.png" class="video_play"></image>
+			</view>
+		</view>
+		<!-- 文章 -->
+		<view class="articleText" wx:else bindtap="navClick" data-url="https://app-web.topcj.com/#/news/detail/{{item.id}}">
+			<view class="articleText_left">
+				<view class="articleText_title">{{ item.title }}</view>
+				<view class="articleText_time">{{ item.ntime }}</view>
+			</view>
+			<view class="articleText_right">
+				<image src="{{ item.cover }}" class="text_cover"></image>
+			</view>
+		</view>
+		<!-- 视频 -->
+		<view class="Video" wx:if="{{index === 1}}">
+			<swiper indicator-dots="{{true}}" circular="{{true}}" 	indicator-active-color="#E7322B" 	indicator-color="#ECECEC"> 
+        <block wx:for="{{videoList}}" wx:key="*this">
+          <swiper-item class="swiper_item">
+            <view class="video_item" bindtap="clickVideoPlay" wx:if="{{videoShow !== index}}" data-videoId="{{index}}" data-videoRef="myVideo{{index}}">
+							<image src="{{ item.cover }}" class="video_item_cover"></image>
+							<image src="../../assets/home/video_play.png" class="video_item_play"></image>
+							<view class="video_item_title">{{ item.title }}</view>
+							<view class="video_item_int">{{ item.content }}</view>
+						</view>
+						<video src="{{ item.videoUrl}}" wx:else="" object-fit="contain" direction="0" class="videoPlay" id="myVideo{{index}}"></video>
+          </swiper-item>
+        </block>
+      </swiper>
+		</view>
+	</view>
+	<!-- video可视区 -->
+	<view class="videoShow"></view>
+
+	<view class="noText">没有更多了！</view>
+	<!-- 弹窗 -->
+	<view class="loading" wx:if="{{ !login }}">
+		<view class="login">
+			<image src="../../assets/home/login.png" class="login_pic"></image>
+			<view class="open">开启专属服务</view>
+			<button 
+				wx:if="{{btnShow}}"
+        open-type="getPhoneNumber" 
+        bindgetphonenumber="loginFn"
+      >
+			一键登录
+      </button>
+			<button wx:else="" bindtap="loginFn">一键登录</button>
+			<view class="register">
+				<view class="register_click" bindtap="radioChange">
+					<image src="../../assets/home/no.png" class="state" wx:if="{{!state}}"></image>
+					<image src="../../assets/home/ok.png" class="state" wx:else=""></image>
+				</view>
+				<view style="margin-left: 50rpx;">
+					注册即代表你同意
+					<text bindtap="navClick" data-url="https://app-web.topcj.com/#/agreement/20?padding=30">《至尊版隐私政策》</text>,
+					<text bindtap="navClick" data-url="https://app-web.topcj.com/#/agreement/23?padding=30">《至尊版免责声明》</text>,
+					未注册号码即将自动注册登录
+				</view>
+			</view>
+		</view>
+	</view>
+</scroll-view>
+

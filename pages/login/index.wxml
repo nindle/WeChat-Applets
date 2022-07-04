@@ -1,0 +1,11 @@
+<!--index.wxml-->
+<view class="root">
+  <image 
+    src="../../assets/images/login-head.png"
+    mode="widthFix"
+  ></image>
+  <button 
+    open-type="getPhoneNumber" 
+    bindgetphonenumber="bindPhone"
+  >微信一键登录</button>
+</view>

@@ -1,0 +1,4 @@
+<!--index.wxml-->
+<view class="root">
+  <view class="esc" bindtap="esc">退出账号</view>
+</view>

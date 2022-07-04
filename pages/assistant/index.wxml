@@ -1,0 +1,31 @@
+<!--index.wxml-->
+<view class="root">
+  <web-view src="{{url}}" wx:if="{{ login }}"></web-view>
+  	<!-- 弹窗 -->
+	<view class="loading" wx:else>
+		<view class="login">
+			<image src="../../assets/home/login.png" class="login_pic"></image>
+			<view class="open">开启专属服务</view>
+			<button 
+				wx:if="{{btnShow}}"
+        open-type="getPhoneNumber" 
+        bindgetphonenumber="loginFn"
+      >
+			一键登录
+      </button>
+			<button wx:else="" bindtap="loginFn">一键登录</button>
+			<view class="register">
+				<view class="register_click" bindtap="radioChange">
+					<image src="../../assets/home/no.png" class="state" wx:if="{{!state}}"></image>
+					<image src="../../assets/home/ok.png" class="state" wx:else=""></image>
+				</view>
+				<view style="margin-left: 50rpx;">
+					注册即代表你同意
+					<text bindtap="navClick" data-url="https://app-web.topcj.com/#/agreement/20?padding=30">《至尊版隐私政策》</text>,
+					<text bindtap="navClick" data-url="https://app-web.topcj.com/#/agreement/23?padding=30">《至尊版免责声明》</text>,
+					未注册号码即将自动注册登录
+				</view>
+			</view>
+		</view>
+	</view>
+</view>

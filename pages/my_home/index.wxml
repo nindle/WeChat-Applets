@@ -1,0 +1,94 @@
+<!--index.wxml-->
+<view class="root">
+  <view class="user_card">
+  <!-- 用户头像 -->
+    <view class="user">
+      <!-- 获取手机号按钮 -->
+      <button 
+        class="name"
+        open-type="getPhoneNumber" 
+        bindgetphonenumber="bindPhone"
+        wx:if="{{ userInfo === null }}"
+      >
+        <view class="user_pic">
+          <image src="../../assets/my_home/unlogin.png" class="unlogin"></image>
+        </view>
+        <view class="user_info">
+          <view class="user_name">登录/注册</view>
+          <view class="user_phone">登录一下，享受更多内容</view>
+        </view>
+      </button>
+      <!-- 用户信息 -->
+      <view class="name" wx:else="">
+        <view class="user_pic">
+          <image src="{{ userInfo.avatar }}" class="unlogin"></image>
+        </view>
+        <view class="user_info">
+          <view class="user_name">{{ userInfo.nickName }}</view>
+          <view class="user_phone">{{ userInfo.mobile }}</view>
+        </view>
+      </view>
+      <!-- 设置 -->
+      <view class="settings" bindtap="settings" wx:if="{{ userInfo !== null }}">
+        <image src="../../assets/my_home/settings.png" class="settings_img"></image>
+      </view>
+    </view>
+    <!-- 常用功能 -->
+    <view class="commonlyused">
+      <view class="commonlyused_title">常用功能</view>
+      <view class="commonlyused_item">
+        <button class="item"  open-type="getPhoneNumber" bindgetphonenumber="bindPhone" wx:if="{{ userInfo === null }}">
+          <image src="../../assets/my_home/evaluation.png" class="item_pic"></image>
+          <view>风险测评</view>
+        </button>
+        <view class="item" wx:else="" bindtap="navClick" data-url="https://www.topxlc.com/ns/#/signcontract/n/risktest?authLogin={{authLogin}}&token={{token}}">
+          <image src="../../assets/my_home/evaluation.png" class="item_pic"></image>
+          <view>风险测评</view>
+        </view>
+        <button class="item" open-type="getPhoneNumber" bindgetphonenumber="bindPhone" wx:if="{{ userInfo === null }}">
+          <image src="../../assets/my_home/strategy.png" class="item_pic"></image>
+          <view>实战攻略</view>
+        </button>
+        <view class="item" wx:else="" bindtap="navClick" data-url="https://app-web.topcj.com/#/topiclist/53">
+          <image src="../../assets/my_home/strategy.png" class="item_pic"></image>
+          <view>实战攻略</view>
+        </view>
+        <button class="item" open-type="getPhoneNumber" bindgetphonenumber="bindPhone" wx:if="{{ userInfo === null }}">
+          <image src="../../assets/my_home/training.png" class="item_pic"></image>
+          <view>特训营</view>
+        </button>
+        <view class="item" wx:else="" bindtap="navClick" data-url="https://app-web.topcj.com/#/training?token={{token}}">
+          <image src="../../assets/my_home/training.png" class="item_pic"></image>
+          <view>特训营</view>
+        </view>
+        <button class="item" open-type="getPhoneNumber" bindgetphonenumber="bindPhone" wx:if="{{ userInfo === null }}">
+          <image src="../../assets/my_home/assistant.png" class="item_pic"></image>
+          <view>专属助理</view>
+        </button>
+        <view class="item" wx:else="" bindtap="navClicks" data-url="https://app-web.topcj.com/#/vip/informations">
+          <image src="../../assets/my_home/assistant.png" class="item_pic"></image>
+          <view>专属助理</view>
+        </view>
+      </view>
+    </view>
+    
+    <!-- 其他功能  -->
+    <view class="other">
+      <view class="other_title">其他功能</view>
+      <view class="other_item">
+        <button class="item1" open-type="getPhoneNumber" bindgetphonenumber="bindPhone" wx:if="{{ userInfo === null }}">
+          <image src="../../assets/my_home/opinion.png" class="item_pic1"></image>
+          <view>意见反馈</view>
+        </button>
+        <view class="item1" wx:else="" bindtap="navClick" data-url="https://app-web.topcj.com/#/feedback?token={{token}}">
+          <image src="../../assets/my_home/opinion.png" class="item_pic1"></image>
+          <view>意见反馈</view>
+        </view>
+        <view class="item1" bindtap="navClicks" data-url="https://app-web.topcj.com/#/about">
+          <image src="../../assets/my_home/about.png" class="item_pic1"></image>
+          <view>关于我们</view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

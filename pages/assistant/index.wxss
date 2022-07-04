@@ -1,0 +1,89 @@
+.loading {
+	width: 100%;
+	height: 100%;
+	background: rgba(0, 0, 0, .6);
+	position: fixed;
+	left: 0;
+	top: 0;
+	/* z-index: 9999999; */
+	display: block;
+}
+.login {
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%, -50%);
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	width: 628rpx;
+	height: 802rpx;
+	background: #FFFFFF;
+	border-radius: 25rpx;
+}
+.login_pic {
+	margin-top: 70rpx;
+	width: 288rpx;
+	height: 288rpx;
+}
+.open {
+	margin-top: 34rpx;
+	font-size: 40rpx;
+	font-family: PingFangSC-Medium, PingFang SC;
+	font-weight: 500;
+	color: #333333;
+}
+button {
+	margin-top: 70rpx;
+	width: 528rpx;
+	height: 92rpx;
+	background: #E7322B;
+	border-radius: 46rpx;
+	font-size: 32rpx;
+	text-align: center;
+	font-family: PingFangSC-Medium, PingFang SC;
+	font-weight: 500;
+	color: #FFFFFF;
+	line-height: 92rpx;
+}
+button:after {
+	display: none;
+}
+.register {
+  display: flex;
+  width: 506rpx;
+	font-size: 25rpx;
+	font-family: PingFangSC-Regular, PingFang SC;
+	font-weight: 400;
+	color: #999999;
+	margin-top: 30rpx;
+}
+text {
+	color: #E7322B;
+}
+.radio {
+	display: flex;
+	align-items: center;
+}
+.state {
+	width: 34rpx;
+	height: 34rpx;
+	display: inline-block;
+}
+.noText {
+	display: block;
+	font-size: 28rpx;
+	margin-bottom: 30rpx;
+	text-align: center;
+	color: #999999;
+}
+.register_click {
+	width: 100rpx; 
+	height: 100rpx; 
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	position: absolute;
+	bottom: 100rpx;
+	left: 25rpx;
+}

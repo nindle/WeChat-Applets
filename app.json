@@ -1,0 +1,50 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/server/index",
+    "pages/home/index",
+    "pages/my_home/index",
+    "pages/live/index",
+    "pages/web_view/index",
+    "pages/settings/index",
+    "pages/assistant/index"
+  ],
+  "entryPagePath": "pages/live/index",
+  "window": {
+    "navigationBarBackgroundColor": "#FFF",
+    "navigationBarTextStyle": "black",
+    "navigationBarTitleText": ""
+  },
+  "tabBar": {
+    "color": "#000000",
+    "selectedColor": "#FD2F32",
+    "list": [
+			{
+				"pagePath": "pages/home/index",
+         "text": "首页",
+         "iconPath": "assets/tabBar/home.png",
+         "selectedIconPath": "assets/tabBar/active_home.png"
+      },
+      {
+				"pagePath": "pages/live/index",
+				"text": "直播",
+        "iconPath": "assets/tabBar/live.png",
+        "selectedIconPath": "assets/tabBar/active_live.png"
+			},
+			{
+				"pagePath": "pages/assistant/index",
+				"text": "咨询",
+         "iconPath": "assets/tabBar/consult.png",
+         "selectedIconPath": "assets/tabBar/active_consult.png"
+      },
+			{
+				"pagePath": "pages/my_home/index",
+				"text": "我的",
+        "iconPath": "assets/tabBar/my_home.png",
+        "selectedIconPath": "assets/tabBar/active_myHome.png"
+			}
+    ]
+  },
+  "debug": false,
+  "sitemapLocation": "sitemap.json"
+}

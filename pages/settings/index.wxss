@@ -1,0 +1,34 @@
+.root {
+	height: 100vh;
+	background: #F6F6F6;
+	padding: 30rpx;
+}
+.about {
+	display: flex;
+	align-items: center;
+	justify-content:space-between;
+	height: 100rpx;
+	padding: 0 39rpx;
+	background: #FFFFFF;
+	border-radius: 16rpx;
+	margin-bottom: 16rpx;
+	font-size: 30rpx;
+	font-family: PingFangSC-Regular, PingFang SC;
+	font-weight: 400;
+	color: #333333;
+}
+.right {
+	width: 20rpx;
+	height: 30rpx;
+}
+.esc {
+	height: 100rpx;
+	background: #FFFFFF;
+	border-radius: 16rpx;
+	text-align: center;
+	line-height: 100rpx;
+	font-size: 30rpx;
+	font-family: PingFangSC-Medium, PingFang SC;
+	font-weight: 500;
+	color: #FD2F32;
+}

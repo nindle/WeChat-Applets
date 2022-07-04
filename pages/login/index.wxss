@@ -1,0 +1,24 @@
+.root {
+    padding: 30rpx;
+}
+
+image {
+    width: 100%;
+}
+
+button {
+    background: #E7322B;
+    border: none;
+    height: 70rpx;
+    line-height: 70rpx;
+    margin-top: 70rpx;
+    font-size: 30rpx;
+    color: #FFF;
+    border-radius: 35rpx;
+}
+button.button-hover {
+    background: #E7322B;
+    color: #FFF;
+    opacity: .8;
+}
+button:after { display: none;}
